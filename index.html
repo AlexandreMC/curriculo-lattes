@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Alexandre Martins da Cunha</title>
+    <style>
+        :root {
+            --primary-color: #1d4ed8;
+            --primary-light: #dbeafe;
+            --text-color: #1f2937;
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding-bottom: 3px;
+        }
+        
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: var(--primary-light);
+            border-bottom: 2px solid white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row;
+            }
+            
+            .hero-content {
+                flex: 3;
+            }
+            
+            .hero-image {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        
+        .hero-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-text {
+            margin-bottom: 1.5rem;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 4rem;
+            font-weight: bold;
+        }
+        
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-size: 1.5rem;
+        }
+        
+        .section-title svg {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .grid-2 {
+            grid-template-columns: 1fr;
+        }
+        
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .info-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-list li strong {
+            margin-right: 0.25rem;
+        }
+        
+        address {
+            font-style: normal;
+            line-height: 1.6;
+        }
+        
+        .experience-item {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .experience-item:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .experience-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .experience-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+        }
+        
+        .experience-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .experience-company {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        
+        .experience-period {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .experience-period {
+                margin-top: 0;
+            }
+        }
+        
+        .experience-details {
+            margin-top: 0.75rem;
+        }
+        
+        .experience-details p {
+            margin-bottom: 0.25rem;
+        }
+        
+        .activities-title {
+            font-weight: 600;
+            margin-top: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .activities-list {
+            list-style-position: inside;
+            padding-left: 0.5rem;
+        }
+        
+        .activities-list li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .course-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .course-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: box-shadow 0.3s;
+        }
+        
+        .course-item:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .course-title {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .course-institution {
+            font-size: 0.875rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        
+        .course-period {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        
+        .course-hours {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .contact-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item svg {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .contact-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 1.5rem 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+        .footer-info {
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-info {
+                margin-bottom: 0;
+            }
+        }
+        
+        .footer-info p:first-child {
+            margin-bottom: 0.25rem;
+        }
+        
+        .footer-info p:last-child {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        .footer-nav {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-nav a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            color: white;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .scroll-top:hover {
+            background-color: #1e40af;
+        }
+        
+        /* Mobile menu styles */
+        @media (max-width: 767px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1e40af;
+                padding: 1rem 0;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="header-title">Alexandre Martins da Cunha</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#sobre" class="active">Sobre</a></li>
+                    <li><a href="#formacao">Formação</a></li>
+                    <li><a href="#experiencia">Experiência</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="card hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Analista de Tecnologia da Informação</h2>
+                <p class="hero-text">
+                    Mestre, Ciência da Computação, Centro Federal de Educação Tecnológica Celso Suckow da Fonseca (CEFET/RJ), 2019. Especialista, Gestão em Tecnologia da Informação e da Comunicação, Universidade Cândido Mendes (UCAM), 2014. Especialista, Docência do Ensino Superior, Faculdade Focus (Focus), 2022. Especialista, Docência no Ensino Médio, Faculdade Intervale (Intervale), 2022. Licenciado, Pedagogia pela Faculdade Intervale (Intervale), 2022. Tecnólogo, Tecnologia em Análise e Desenvolvimento de Sistemas, Centro Universitário da Cidade (UniverCidade), 2011. Atualmente cursando Especialização em Análise e Projeto de Software pela Faculdade Focus.
+                </p>
+                <p class="hero-text">
+                    A pesquisa de mestrado teve foco no Reconhecimento de Entidades Nomeadas, Mineração de Dados, Mineração de Textos e Eventos Adversos de Medicamentos. Publicou artigos nos campos de e-Science e Social Network Analysis and Mining, sendo e-Science o foco de sua dissertação. Membro do grupo de pesquisa LaCAfe - Laboratório de Computação Afetiva, desde sua fundação em 2019. Entre 2013 e 2016, atuou no projeto InfraLaboratorial - Laboratórios de informática em Linux dos Cursos de Graduação da UFF, como colaborador, desenvolvendo soluções técnicas e instruindo bolsistas. Atualmente, trabalha como Analista de Tecnologia na Universidade Federal do Rio de Janeiro (UFRJ), atuando na infraestrutura de T.I.C. e desenvolvendo soluções com software livre. Também atua como consultor técnico e autônomo em projetos sob demanda.
+                </p>
+                <div class="tag-container">
+                    <span class="tag">Linguística Computacional</span>
+                    <span class="tag">Processamento de Linguagem Natural</span>
+                    <span class="tag">Computação Afetiva</span>
+                    <span class="tag">Análise de Sentimentos</span>
+                    <span class="tag">Análise, Simulação e Reconhecimento de Afeto</span>
+                    <span class="tag">Segurança da Informação</span>
+                    <span class="tag">Informática na Educação</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar">AC</div>
+            </div>
+        </section>
+
+        <!-- Sobre Section -->
+        <section id="sobre" class="card">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Sobre
+            </h2>
+            <div class="grid grid-2">
+                <div class="info-group">
+                    <h3 class="info-title">Dados Pessoais</h3>
+                    <ul class="info-list">
+                        <li><strong>Nome:</strong> Alexandre Martins da Cunha</li>
+                        <li><strong>Citação Bibliográfica:</strong> CUNHA, A. M.</li>
+                        <li><strong>Nacionalidade:</strong> Brasil</li>
+                        <li>
+                            <strong>Lattes ID:</strong>
+                            <a href="http://lattes.cnpq.br/5226769352079256" target="_blank">5226769352079256</a>
+                        </li>
+                        <li>
+                            <strong>ORCID:</strong>
+                            <a href="https://orcid.org/0000-0002-6770-7751" target="_blank">0000-0002-6770-7751</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-group">
+                    <h3 class="info-title">Endereço Profissional</h3>
+                    <address>
+                        <p>Universidade Federal do Rio de Janeiro</p>
+                        <p>Superintendência Geral de Tecnologia da Informação e Comunicação (SGTIC)</p>
+                        <p>AV. PEDRO CALMON, 550, Contêiner</p>
+                        <p>Niterói, RJ - 24020140</p>
+                        <p>Brasil</p>
+                        <p>Telefone: (21) 2629 (Ramal: 7554)</p>
+                    </address>
+                </div>
+            </div>
+            <div class="info-group">
+                <h3 class="info-title">Áreas de Interesse</h3>
+                <div class="tag-container">
+                    <span class="tag">Linguística Computacional</span>
+                    <span class="tag">Processamento de Linguagem Natural</span>
+                    <span class="tag">Computação Afetiva</span>
+                    <span class="tag">Análise de Sentimentos</span>
+                    <span class="tag">Análise, Simulação e Reconhecimento de Afeto</span>
+                    <span class="tag">Segurança da Informação</span>
+                    <span class="tag">Informática na Educação</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formação Section -->
+        <section id="formacao" class="card">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+                Formação Acadêmica
+            </h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Mestrado em Ciência da Computação</h3>
+                            <p class="experience-company">Centro Federal de Educação Tecnológica Celso Suckow da Fonseca (CEFET/RJ)</p>
+                        </div>
+                        <span class="experience-period">2017 - 2019</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Título:</strong> Detecção de sinais de eventos adversos de medicamentos em textos informais</p>
+                        <p><strong>Orientador:</strong> Gustavo Paiva Guedes e Silva</p>
+                        <p><strong>Área:</strong> Ciências Exatas e da Terra</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Especialização em Análise e Projeto de Software</h3>
+                            <p class="experience-company">FACULDADE FOCUS (FFOCUS)</p>
+                        </div>
+                        <span class="experience-period">2023 - 2024</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Carga Horária:</strong> 400h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Especialização em Docência do Ensino Médio</h3>
+                            <p class="experience-company">Faculdade Intervale (INTERVALE)</p>
+                        </div>
+                        <span class="experience-period">2022 - 2023</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Carga Horária:</strong> 420h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Especialização em Docência do Ensino Superior</h3>
+                            <p class="experience-company">FACULDADE FOCUS (FFOCUS)</p>
+                        </div>
+                        <span class="experience-period">2022 - 2022</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Carga Horária:</strong> 400h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Especialização em Gestão em Tecnologia da Informação</h3>
+                            <p class="experience-company">Instituto Universitário Cândido Mendes (IUCAM/RJ)</p>
+                        </div>
+                        <span class="experience-period">2013 - 2014</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Título:</strong> Teste de Desempenho de Sistema de Arquivos GNU/Linux e MIcrosoft Windows</p>
+                        <p><strong>Orientador:</strong> Frederico Sauer Guimarães Oliveira</p>
+                        <p><strong>Carga Horária:</strong> 498h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Graduação em Licenciatura em Pedagogia</h3>
+                            <p class="experience-company">Faculdade Intervale (INTERVALE)</p>
+                        </div>
+                        <span class="experience-period">2022 - 2023</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Graduação em Análise e Desenvolvimento de Sistemas</h3>
+                            <p class="experience-company">Centro Universitário da Cidade (UniverCidade)</p>
+                        </div>
+                        <span class="experience-period">2006 - 2011</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Título:</strong> Sistema de agendamento clínico - Glaxo farmacêutica (GSK BR)</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Curso técnico/profissionalizante em Eletrônica</h3>
+                            <p class="experience-company">Fundação de Apoio à Escola Técnica do Estado do Rio de Janeiro (FAETEC)</p>
+                        </div>
+                        <span class="experience-period">2004 - 2005</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Ensino Médio</h3>
+                            <p class="experience-company">Colégio Estadual Central do Brasil (CECB)</p>
+                        </div>
+                        <span class="experience-period">2000 - 2003</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Ensino Fundamental</h3>
+                            <p class="experience-company">Colégio Imaculado Coração de Maria (CICM)</p>
+                        </div>
+                        <span class="experience-period">1997 - 2000</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Ensino Fundamental</h3>
+                            <p class="experience-company">Colégio Professora Chagas de Carvalho (CPCC)</p>
+                        </div>
+                        <span class="experience-period">1990 - 1996</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiência Section -->
+        <section id="experiencia" class="card">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                Experiência Profissional
+            </h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Analista de Tecnologia de Informação</h3>
+                            <p class="experience-company">Universidade Federal do Rio de Janeiro (UFRJ)</p>
+                        </div>
+                        <span class="experience-period">2024 - Atual</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Servidor Público</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                        <h4 class="activities-title">Atividades:</h4>
+                        <ul class="activities-list">
+                            <li>Responsável pela gestão da infraestrutura de dados dos sistemas corporativos da UFRJ</li>
+                            <li>Garantia de segurança, estabilidade, confiabilidade e escalabilidade das bases de dados</li>
+                            <li>Suporte a sistemas de processamento de grande volume de dados (Big Data)</li>
+                            <li>Implementação de soluções de Business Intelligence</li>
+                            <li>Visualização de dados analíticos e gerenciais</li>
+                            <li>Utilização de ferramentas de código aberto (opensource)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Técnico de Laboratório / Informática</h3>
+                            <p class="experience-company">Universidade Federal Fluminense (UFF)</p>
+                        </div>
+                        <span class="experience-period">2013 - 2024</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Servidor Público</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                        <h4 class="activities-title">Atividades:</h4>
+                        <ul class="activities-list">
+                            <li>Implementação de ambiente GNU/Linux</li>
+                            <li>Manutenção de equipamentos</li>
+                            <li>Suporte aos docentes e alunos</li>
+                            <li>Assessoramento nas atividades de ensino, pesquisa e extensão</li>
+                            <li>Personalização do sistema GNU/Linux para o ambiente de laboratório</li>
+                            <li>Pesquisa de ferramentas para atividades laborais no ensino da matemática e da estatística</li>
+                            <li>Membro do colegiado da unidade como representante dos técnicos administrativos em educação (2017-2019 e 2021-2023)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Consultor Técnico</h3>
+                            <p class="experience-company">Autônomo</p>
+                        </div>
+                        <span class="experience-period">2005 - 2020</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Freelancer</p>
+                        <p><strong>Carga Horária:</strong> 10h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Consultor Técnico</h3>
+                            <p class="experience-company">iTTi Soluções (ITTI SOLUÇÕES)</p>
+                        </div>
+                        <span class="experience-period">2014 - 2017</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Consultor Técnico</p>
+                        <p><strong>Carga Horária:</strong> 4h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Analista de Sistemas</h3>
+                            <p class="experience-company">Nova Rio Serviços Gerais (NOVA RIO)</p>
+                        </div>
+                        <span class="experience-period">2012 - 2013</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Celetista</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                        <h4 class="activities-title">Atividades:</h4>
+                        <ul class="activities-list">
+                            <li>Desenvolvimento de solução computacional para uso na Diretoria Geral de Engenharia (DGENG)</li>
+                            <li>Elaboração de casos de uso, modelagem de dados</li>
+                            <li>Codificação em linguagem DELPHI 7</li>
+                            <li>Gerência de infraestrutura (servidores de arquivos, servidores de sistemas, cotas de disco, grupos de acesso)</li>
+                            <li>Orientação aos usuários sobre o uso dos sistemas</li>
+                            <li>Confecção de relatórios gerenciais</li>
+                            <li>Controle de acesso a recursos computacionais da DGENG</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Operador de Automação</h3>
+                            <p class="experience-company">Tecnenge Engenharia LTDA (TECNENGE)</p>
+                        </div>
+                        <span class="experience-period">2010 - 2012</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Celetista</p>
+                        <p><strong>Carga Horária:</strong> 44h</p>
+                        <h4 class="activities-title">Atividades:</h4>
+                        <ul class="activities-list">
+                            <li>Supervisão e operação dos sistemas de automação</li>
+                            <li>Contato direto com o cliente</li>
+                            <li>Gestão da informação com os segmentos da engenharia (Elétrica, Automação, Mecânica, Ar Condicionado, Brigada de Incêndio etc.)</li>
+                            <li>Levantamento de falhas</li>
+                            <li>Concepção de relatórios técnicos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Analista de suporte</h3>
+                            <p class="experience-company">Stefanini Consultoria e Assessoria em Informática (SCAI)</p>
+                        </div>
+                        <span class="experience-period">2009 - 2009</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Celetista</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Analista de Sistemas</h3>
+                            <p class="experience-company">Consoft Consultoria e Sistemas LTDA (CONSOFT)</p>
+                        </div>
+                        <span class="experience-period">2008 - 2009</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Celetista</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Técnico em Informática</h3>
+                            <p class="experience-company">PC Service Tecnologia LTDA (PC SERVICE)</p>
+                        </div>
+                        <span class="experience-period">2007 - 2008</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Celetista</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Técnico em Informática</h3>
+                            <p class="experience-company">Better Recursos Humanos (BETTER RH)</p>
+                        </div>
+                        <span class="experience-period">2006 - 2007</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Celetista</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Monitor de Laboratório</h3>
+                            <p class="experience-company">Centro Universitário da Cidade (UniverCidade)</p>
+                        </div>
+                        <span class="experience-period">2005 - 2006</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Estágio</p>
+                        <p><strong>Carga Horária:</strong> 20h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Técnico em Informática</h3>
+                            <p class="experience-company">Fix Computer Informática (FIX COMPUTER)</p>
+                        </div>
+                        <span class="experience-period">2004 - 2005</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Celetista</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Técnico de Urna Eletrônica</h3>
+                            <p class="experience-company">Tribunal Regional Eleitoral do Rio de Janeiro (TRE/RJ)</p>
+                        </div>
+                        <span class="experience-period">2003 - 2004</span>
+                    </div>
+                    <div class="experience-details">
+                        <p><strong>Vínculo:</strong> Temporário</p>
+                        <p><strong>Carga Horária:</strong> 40h</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cursos Section -->
+        <section id="cursos" class="card">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                Formação Complementar
+            </h2>
+            <div class="course-grid">
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">FOFO - Formação de Formadores</h3>
+                            <p class="course-institution">Escola Judiciária Eleitoral (EJE)</p>
+                        </div>
+                        <span class="course-period">2022 - 2022</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 40h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Redes de Armazenamento de Dados</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 40h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">NGINX 1.8 Alta Performance no CentOS 7 e Debian 8</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 16h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Balanceamento de Servidores com Linux Virtual Server</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 10h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Teste de invasão em Redes</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 24h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Monitoramento de Sistemas e Detecção de Intrusão</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 8h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Hardening & Segurança em Servidores Linux</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 30h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Teste de invasão com Metasploit Framework</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 32h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Web Security Server</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 6h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Administração em Redes Linux</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 30h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Análise de Desempenho e Tuning em Linux</h3>
+                            <p class="course-institution">Academia - OYS</p>
+                        </div>
+                        <span class="course-period">2016 - 2017</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 40h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Web Developer em Java com JEE</h3>
+                            <p class="course-institution">Coti Informática (COTI)</p>
+                        </div>
+                        <span class="course-period">2010 - 2010</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 120h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Curso preparatório para certificação COBIT 4.1</h3>
+                            <p class="course-institution">Stefanini Training Treinamento em Informática (ST/TI)</p>
+                        </div>
+                        <span class="course-period">2009 - 2009</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 24h</p>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-header">
+                        <div>
+                            <h3 class="course-title">Curso preparatório para certificação ITIL V3</h3>
+                            <p class="course-institution">Stefanini Training Treinamento em Informática (ST/TI)</p>
+                        </div>
+                        <span class="course-period">2009 - 2009</span>
+                    </div>
+                    <p class="course-hours"><strong>Carga Horária:</strong> 16h</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section id="contato" class="card">
+            <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Contato e Links
+            </h2>
+            <div class="contact-grid">
+                <div>
+                    <h3 class="contact-title">Informações de Contato</h3>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <a href="mailto:alexandremartinscunha@yahoo.com.br">alexandremartinscunha@yahoo.com.br</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="contact-title">Links Profissionais</h3>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        <a href="https://scholar.google.pt/citations?hl=pt-BRuser=0hE3K2MAAAAJ" target="_blank">Google Scholar</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        <a href="https://eic.cefet-rj.br/~lacafe/" target="_blank">LaCAfe - Laboratório de Computação Afetiva</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        <a href="http://lattes.cnpq.br/5226769352079256" target="_blank">Currículo Lattes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p>&copy; <span id="current-year"></span> - Alexandre Martins da Cunha</p>
+                <p>Currículo Lattes</p>
+            </div>
+            <div class="footer-nav">
+                <a href="#sobre">Sobre</a>
+                <a href="#formacao">Formação</a>
+                <a href="#experiencia">Experiência</a>
+                <a href="#cursos">Cursos</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="scroll-top" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active link
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Close mobile menu if open
+                    const nav = document.getElementById('main-nav');
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Update active menu item on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
